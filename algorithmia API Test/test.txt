@@ -1,0 +1,17 @@
+
+
+
+
+const algorithmia = require('algorithmia');
+
+const api_key = 'simb7dHFG0dpkta0yws9wywDULo1';
+
+var input = {
+    "image": "data://deeplearning/example_data/lincoln.jpg"
+};
+algorithmia.client(api_key)
+  .algo("deeplearning/ColorfulImageColorization/1.1.13?timeout=300") // timeout is optional
+  .pipe(input)
+  .then(function(response) {
+    console.log(response.get());
+  });
